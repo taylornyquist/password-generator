@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var resetBtn = document.querySelector("#reset");
-var copyBtn = document.querySelector("copy");
 
 
 // Write password to the #password input
@@ -17,7 +16,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 resetBtn.addEventListener("click", resetPassword);
-copyBtn.addEventListener("click", copyPassword);
 
   // Create Variable Arrays for Password Generator
   var symbols = ["@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];

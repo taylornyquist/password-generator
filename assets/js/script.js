@@ -14,12 +14,17 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-  // Create variables for password generator
-  var symbols = "!'#$%&()*+-./;:<>=?@[]{}~^";
-  var numbers = "0123456789";
-  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  // Create Variable Arrays for Password Generator
+  var symbols = ["@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];
+  var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var newPassword = "";
+
+  // Empty Arrays
+  var resultArray = [];
+  var userArray = [];
+  
 
 // Create Generate Password Function
 function generatePassword() {
@@ -45,34 +50,39 @@ function generatePassword() {
             console.log("Use numbers? " + genUpperCase);
     };
 
-    //create variables that adds all the new characters together
-    var allCharacters = symbols + numbers + lowerCase + upperCase;
-    var a = symbols + numbers + lowerCase;
-    var b = symbols + numbers + upperCase;
-    var c = symbols + lowerCase + upperCase;
-    var d = numbers + lowerCase + upperCase;
-    var e = symbols + numbers;
-    var f = symbols + lowerCase;
-    var g = symbols + upperCase;
-    var h = numbers + lowerCase;
-    var j = numbers + upperCase;
-    var k = lowerCase + upperCase;
-
-    if ((genSymbols === true) && (genNumbers === true) && (genLowerCase === true) && (genUpperCase === true)) {
-        for (i = 0; i < charLength; i++) {
-            let character = Math.floor(Math.random() * allCharacters.length);
-            newPassword += allCharacters.charAt(character, character + 1);
-        }
+    if (genSymbols) {
+        resultArray = resultArray.concat(symbols);
     }
 
- 
+    if (genNumbers) {
+        resultArray = resultArray.concat(numbers);
+    }
 
-    
+    if (genLowerCase) {
+        resultArray = resultArray.concat(lowerCase);
+    }
 
+    if (genUpperCase) {
+        resultArray = resultArray.concat(upperCase);
+    }
+    console.log(resultArray)
 
+    for (var i = 0; i < charLength; i++) {
+
+        userArray.push (resultArray[Math.floor(Math.random() * resultArray.length)]);
+        }
+
+        return userArray.join("");
 };
 
-    
+// Function Reset
+function resetPassword() {
+    document.getElementById("password").reset();
+  }
+
+
+
+
 
 
 

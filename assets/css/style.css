@@ -56,6 +56,13 @@ header {
 
 .card-footer {
   text-align: center;
+  width: 100%;
+}
+
+.flex-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .card-footer::before {

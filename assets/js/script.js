@@ -90,7 +90,7 @@ function resetPassword() {
     console.clear();
     var password = newPassword;
     passwordText.value = password;
-    // reset.function generatePassword();
+    location.reload();
   };
 
 

@@ -24,19 +24,22 @@ resetBtn.addEventListener("click", resetPassword);
   var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var newPassword = "";
 
-  // Empty Arrays
-  var resultArray = [];
-  var userArray = [];
+
 
 // Create Generate Password Function
 function generatePassword() {   
+
+    // Empty Arrays
+    var resultArray = [];
+    var userArray = [];
 
     var charLength = prompt("How many characters would you like your new password to be? Pick a number between 8 and 128.");
     console.log("Password Length " + charLength);
 
     if (isNaN(charLength) || (charLength < 8) || (charLength > 128)) {
         window.alert("Please pick a number between 8 and 128.");
-        generatePassword();
+        return generatePassword();
+        
     }
     else {
             // Prompt user to pick character types
@@ -54,7 +57,7 @@ function generatePassword() {
 
             if ((genSymbols === false) && (genNumbers === false) && (genLowerCase === false) && (genUpperCase === false)) {
                 window.alert("Please select at least one type of character to use. (i.e. Symbols, Numbers, Lowercase or Uppercase)");
-                generatePassword();
+                return generatePassword();
             }
     };
 
@@ -90,7 +93,7 @@ function resetPassword() {
     console.clear();
     var password = newPassword;
     passwordText.value = password;
-    location.reload();
+    // location.reload();
   };
 
 
